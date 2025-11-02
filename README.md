@@ -7,3 +7,13 @@
 ## TODOs
 1. Настроить связь между trino и minio (не создаются таблицы)
 2. 
+
+## Запуск 
+```
+docker compose down && docker compose up -d
+```
+
+## Запросы
+```
+select * from system.runtime.nodes;
+```
