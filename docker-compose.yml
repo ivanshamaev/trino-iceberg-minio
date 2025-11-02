@@ -16,7 +16,7 @@ services:
       - minio
     volumes:
       - ./trino/iceberg.properties:/etc/trino/catalog/iceberg.properties
-      #- ./trino/filesystems/s3.properties:/etc/trino/filesystems/s3.properties
+      - ./trino/filesystems/s3.properties:/etc/trino/filesystems/s3.properties
     environment:
       - AWS_ACCESS_KEY_ID=admin
       - AWS_SECRET_ACCESS_KEY=password
