@@ -1,5 +1,3 @@
-version: "3"
-
 x-common-environment: &common-environment
   AWS_ACCESS_KEY_ID: admin
   AWS_SECRET_ACCESS_KEY: password
@@ -9,6 +7,8 @@ services:
   trino:
     image: trinodb/trino:latest
     container_name: trino
+    ports:
+      - 8080:8080
     networks:
       iceberg_net:
     depends_on:
@@ -16,6 +16,7 @@ services:
       - minio
     volumes:
       - ./trino/iceberg.properties:/etc/trino/catalog/iceberg.properties
+      - ./trino/filesystems/s3.properties:/etc/trino/filesystems/s3.properties
     environment:
       <<: *common-environment
 
@@ -34,6 +35,9 @@ services:
       CATALOG_WAREHOUSE: s3://warehouse/
       CATALOG_IO__IMPL: org.apache.iceberg.aws.s3.S3FileIO
       CATALOG_S3_ENDPOINT: http://minio:9000
+      CATALOG_S3_PATH_STYLE_ACCESS: true
+      CATALOG_S3_ACCESS_KEY_ID: admin
+      CATALOG_S3_SECRET_ACCESS_KEY: password
       CATALOG_URI: jdbc:postgresql://postgres/demo_catalog
       CATALOG_JDBC_USER: admin
       CATALOG_JDBC_PASSWORD: password
