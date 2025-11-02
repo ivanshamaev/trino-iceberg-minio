@@ -17,3 +17,16 @@ docker compose down && docker compose up -d
 ```
 select * from system.runtime.nodes;
 ```
+
+# Trino
+
+config.properties:
+```
+#single node install config
+coordinator=true
+node-scheduler.include-coordinator=true
+http-server.http.port=8080
+discovery.uri=http://localhost:8080
+catalog.management=${ENV:CATALOG_MANAGEMENT}
+```
+
