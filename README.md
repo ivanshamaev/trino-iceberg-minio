@@ -38,3 +38,10 @@ docker run -d -p 8000:8000 -p 9443:9443 --name portainer \
     -v portainer_data:/data \
     portainer/portainer-ce:lts
 ```
+
+# VPS
+
+Для теста мне хватило
+CPU: 2 Ядра
+Память: 6 ГБ
+NVMe: 15 ГБ
