@@ -57,3 +57,6 @@ SHOW STATS FOR iceberg.test.customer;
 
 -- Обращение к метаданным таблицы Iceberg
 select * from iceberg.test."orders$snapshots";
+
+-- Посмотреть параметры сессии (и дефолтные значения) - настройки Trino и Iceberg
+SHOW SESSION;
