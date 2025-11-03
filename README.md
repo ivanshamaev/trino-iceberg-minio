@@ -17,8 +17,7 @@ select * from system.runtime.nodes;
 
 # Trino UI
 
-<video src="docs/media/trino_ui.webm" controls width="600"></video>
-[Смотреть видео](docs/media/trino_ui.webm)
+![Trino UI интерфейс](docs/media/trino_ui.gif)
 
 # Portainer
 
