@@ -55,3 +55,5 @@ describe iceberg.test.customer;
 -- Показать статистику таблицы
 SHOW STATS FOR iceberg.test.customer;
 
+-- Обращение к метаданным таблицы Iceberg
+select * from iceberg.test."orders$snapshots";
